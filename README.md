@@ -4,7 +4,7 @@ This extension provides [Swoole](https://www.swoole.com/) support for [Yii3](htt
 
 ## Requirements
 
-- PHP 8.1 or higher
+- PHP 8.4 or higher
 - [Swoole PHP Extension](https://www.swoole.com)
 
 ## Installation
