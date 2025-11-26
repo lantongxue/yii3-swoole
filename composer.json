@@ -36,5 +36,10 @@
         "allow-plugins": {
             "yiisoft/config": true
         }
+    },
+    "extra": {
+        "config-plugin": {
+            "di-console": "config/di-console.php"
+        }
     }
 }

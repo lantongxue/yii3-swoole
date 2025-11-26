@@ -19,7 +19,9 @@ composer require lantongxue/yii3-swoole
 
 ### 1. Configure the Console Command
 
-Add the `StartCommand` to your console application configuration (e.g., `config/console/di.php` or `di-console.php`):
+The package automatically provides the configuration for the `StartCommand` if you use `yiisoft/config`.
+
+If you are not using `yiisoft/config`, add the `StartCommand` to your console application configuration manually:
 
 ```php
 use Yii3Swoole\Command\StartCommand;
@@ -33,12 +35,10 @@ return [
     ],
     Server::class => [
         '__construct()' => [
-            // Pass necessary ApplicationRunner arguments here
-            'rootPath' => $params['rootPath'],
-            'debug' => $params['debug'],
-            'checkEvents' => $params['checkEvents'],
-            'environment' => $params['environment'],
-            // ... other runner options
+            'rootPath' => $params['yiisoft/yii-runner-http']['rootPath'] ?? dirname(__DIR__),
+            'debug' => $params['yiisoft/yii-runner-http']['debug'] ?? false,
+            'checkEvents' => $params['yiisoft/yii-runner-http']['checkEvents'] ?? false,
+            'environment' => $params['yiisoft/yii-runner-http']['environment'] ?? null,
         ],
     ],
 ];
